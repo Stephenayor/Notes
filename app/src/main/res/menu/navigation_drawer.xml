@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group
-        android:id="@+id/group1"
-        android:checkableBehavior="single">
-    <item
-        android:id="@+id/my_notes"
-        android:title="My Notes"
-         />
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <item
-        android:id="@+id/about"
-        android:title="About" />
+        android:id="@+id/nav_notes"
+        android:title="@string/my_notes" />
 
-</group>
+    <item
+        android:id="@+id/nav_about"
+        android:title="@string/about" />
+
 </menu>
