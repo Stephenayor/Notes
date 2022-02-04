@@ -8,10 +8,14 @@
     <fragment
         android:id="@+id/noteListFragment"
         android:name="com.example.notes.NoteListFragment"
-        android:label="Note List" />
+        android:label="Note List" >
+        <action
+            android:id="@+id/action_noteListFragment_to_noteDetailsFragment"
+            app:destination="@id/noteDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/noteDetailsFragment"
         android:name="com.example.notes.NoteDetailsFragment"
-        android:label="fragment_note_details"
+        android:label="Create Notes"
         tools:layout="@layout/fragment_note_details" />
 </navigation>

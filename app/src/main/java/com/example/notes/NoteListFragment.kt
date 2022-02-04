@@ -8,6 +8,12 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import com.example.notes.databinding.FragmentNoteListBinding
 import com.google.android.material.navigation.NavigationView
 
@@ -25,11 +31,14 @@ class NoteListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
-//        inflater.inflate(R.layout.fragment_note_list, container, false)
         val binding = DataBindingUtil.inflate<FragmentNoteListBinding>(inflater, R.layout.fragment_note_list, container,
             false)
-
+        //navigate to details Fragment
+        binding.floatingActionButton.setOnClickListener { view: View ->
+            view.findNavController().navigate(R.id.action_noteListFragment_to_noteDetailsFragment)
+        }
         return binding.root
     }
 
 }
+
