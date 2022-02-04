@@ -25,17 +25,10 @@ class NoteListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
-        inflater.inflate(R.layout.fragment_note_list, container, false)
+//        inflater.inflate(R.layout.fragment_note_list, container, false)
         val binding = DataBindingUtil.inflate<FragmentNoteListBinding>(inflater, R.layout.fragment_note_list, container,
             false)
-//
-//
-//        binding.noteFragment = NoteListFragment()
-//        var drawerLayout2: DrawerLayout = binding.drawerLayout
-//        actionBarToggle = ActionBarDrawerToggle(activity, drawerLayout2, 0, 0)
-//        drawerLayout.addDrawerListener(actionBarToggle)
-//        activity?.actionBar?.setDisplayHomeAsUpEnabled(true)
-//        actionBarToggle.syncState()
+
         return binding.root
     }
 

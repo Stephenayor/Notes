@@ -8,4 +8,5 @@
     <string name="app_name2">Navigation Drawer</string>
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
+    <string name="note_list_action_bar">Note List Action Bar</string>
 </resources>
