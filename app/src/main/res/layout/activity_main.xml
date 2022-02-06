@@ -13,7 +13,6 @@ xmlns:tools="http://schemas.android.com/tools">
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
         <fragment
             android:id="@+id/note_list_fragment"
             android:layout_width="match_parent"
@@ -22,8 +21,8 @@ xmlns:tools="http://schemas.android.com/tools">
             app:defaultNavHost="true"
             app:navGraph="@navigation/nav_graph">
         </fragment>
-    </LinearLayout>
 
+    </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navView"

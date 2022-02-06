@@ -9,4 +9,7 @@
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
     <string name="note_list_action_bar">Note List Action Bar</string>
+    <string name="title">Title</string>
+    <string name="body">Body</string>
+    <string name="save_notes">Save Notes</string>
 </resources>
