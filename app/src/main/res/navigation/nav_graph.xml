@@ -17,5 +17,9 @@
         android:id="@+id/noteDetailsFragment"
         android:name="com.example.notes.NoteDetailsFragment"
         android:label="Create Notes"
-        tools:layout="@layout/fragment_note_details" />
+        tools:layout="@layout/fragment_note_details" >
+        <action
+            android:id="@+id/action_noteDetailsFragment_to_noteListFragment"
+            app:destination="@id/noteListFragment" />
+    </fragment>
 </navigation>

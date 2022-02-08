@@ -13,7 +13,7 @@ interface NotesDao {
     fun getAllNotes(): LiveData<List<Notes>>
 
     @Insert
-     fun saveNote(note: Notes)
+    suspend fun saveNote(note: Notes)
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     suspend fun updateNote(note: Notes)
