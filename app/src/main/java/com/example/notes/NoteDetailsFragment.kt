@@ -72,4 +72,7 @@ class NoteDetailsFragment() : Fragment() {
         view?.findNavController()?.navigate(R.id.action_noteDetailsFragment_to_noteListFragment)
     }
 
+    fun addToGithub(){
+
+    }
 }
