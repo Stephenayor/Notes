@@ -1,10 +1,9 @@
-package com.example.notes
+package com.example.notes.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.notes.database.NotesDao
-import kotlin.reflect.KClassifier
 
 
 class NotesViewModelFactory(

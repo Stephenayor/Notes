@@ -1,22 +1,18 @@
 package com.example.notes
 
-import android.content.Context
 import android.os.Bundle
-import android.os.Parcel
-import android.os.Parcelable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
 import androidx.navigation.findNavController
 import com.example.notes.database.NotesDatabase
 import com.example.notes.databinding.FragmentNoteDetailsBinding
+import com.example.notes.viewmodel.NotesViewModel
+import com.example.notes.viewmodel.NotesViewModelFactory
 import kotlinx.android.synthetic.main.fragment_note_details.*
 
 class NoteDetailsFragment() : Fragment() {
@@ -55,7 +51,6 @@ class NoteDetailsFragment() : Fragment() {
         binding.apply {
             noteTitle = noteTitleEditText.text.toString()
             noteBody = noteBodyEditText.text.toString()
-
             binding.invalidateAll()
             binding.saveNotesButton.setOnClickListener { view: View ->
                 saveNotes()
@@ -72,7 +67,4 @@ class NoteDetailsFragment() : Fragment() {
         view?.findNavController()?.navigate(R.id.action_noteDetailsFragment_to_noteListFragment)
     }
 
-    fun addToGithub(){
-
-    }
 }

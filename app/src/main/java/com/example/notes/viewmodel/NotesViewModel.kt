@@ -1,9 +1,10 @@
-package com.example.notes
+package com.example.notes.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import com.example.notes.Notes
 import com.example.notes.database.NotesDao
 import com.example.notes.database.NotesDatabase
 import com.example.notes.repository.NoteRepository
