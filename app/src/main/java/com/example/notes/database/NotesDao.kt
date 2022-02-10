@@ -13,12 +13,12 @@ interface NotesDao {
     fun getAllNotes(): LiveData<List<Notes>>
 
     @Query("SELECT * FROM notes_list_table WHERE id = :id")
-     fun getNoteById(id: Int): Notes
+    fun getNoteById(id: Int): Notes
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun saveNote(note: Notes)
 
-    @Update
+    @Update(onConflict = OnConflictStrategy.REPLACE)
     suspend fun updateNote(note: Notes)
 
     @Delete

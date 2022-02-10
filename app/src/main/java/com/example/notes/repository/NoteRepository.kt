@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import com.example.notes.Notes
 import com.example.notes.database.NotesDao
 
-class NoteRepository(private val notesDao: NotesDao){
+class NoteRepository(private val notesDao: NotesDao) {
 
     val notesList: LiveData<List<Notes>> = notesDao.getAllNotes()
 
@@ -12,11 +12,11 @@ class NoteRepository(private val notesDao: NotesDao){
         notesDao.saveNote(note)
     }
 
-    suspend fun delete(note: Notes){
+    suspend fun delete(note: Notes) {
         notesDao.deleteNote(note)
     }
 
-    suspend fun update(note: Notes){
+    suspend fun update(note: Notes) {
         notesDao.updateNote(note)
     }
 }

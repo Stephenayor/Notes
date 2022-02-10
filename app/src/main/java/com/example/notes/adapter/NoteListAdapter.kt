@@ -11,13 +11,12 @@ import kotlinx.android.synthetic.main.fragment_note_details.view.*
 import kotlinx.android.synthetic.main.note_item_view.view.*
 import java.util.*
 
-class NoteListAdapter(val noteClickInterface: NoteClickInterface): RecyclerView.Adapter<NoteListAdapter.NoteItemViewHolder>(){
+class NoteListAdapter(val noteClickInterface: NoteClickInterface) : RecyclerView.Adapter<NoteListAdapter.NoteItemViewHolder>() {
     var noteList: List<Notes?> = listOf<Notes>()
-    set(value) {
-        field = value
-        notifyDataSetChanged()
-    }
-
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteItemViewHolder {
         return NoteItemViewHolder(
@@ -31,9 +30,10 @@ class NoteListAdapter(val noteClickInterface: NoteClickInterface): RecyclerView.
             holder?.noteTitle.text = note.title
             holder?.noteBody.text = note.body
             holder.itemView.setOnClickListener {
-                noteClickInterface.onNoteClick(note) }
+                noteClickInterface.onNoteClick(note)
             }
         }
+    }
 
     override fun getItemCount(): Int = noteList?.size
 
@@ -41,7 +41,7 @@ class NoteListAdapter(val noteClickInterface: NoteClickInterface): RecyclerView.
 
         val noteTitle = binding.note_title_itemView
         val noteBody = binding.note_body_item_view
-}
+    }
 
     interface NoteClickInterface {
         // creating a method for click action
