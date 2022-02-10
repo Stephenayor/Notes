@@ -26,17 +26,21 @@ class NotesViewModel(val notesDao: NotesDao,
 
 
         fun deleteNote (notes: Notes) = viewModelScope.launch(Dispatchers.IO) {
-
+            repository.delete(notes)
         }
 
-//        fun updateNote(note: Note) = viewModelScope.launch(Dispatchers.IO) {
-//            repository.update(note)
-//        }
-//
+        fun updateNote(note: Notes) = viewModelScope.launch(Dispatchers.IO) {
+            repository.update(note)
+        }
+
         fun addNote(notes: Notes) = viewModelScope.launch(Dispatchers.IO) {
                 repository.addNotes(notes)
             }
 
+         fun setupUpdate(noteID: Int) = viewModelScope.launch (Dispatchers.IO){
+            notesDao.getNoteById(noteID)
+        }
 
         }
+
 
