@@ -1,4 +1,4 @@
-package com.example.notes
+package com.example.notes.database
 
 import android.os.Parcel
 import android.os.Parcelable

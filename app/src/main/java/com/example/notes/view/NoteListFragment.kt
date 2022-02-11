@@ -1,4 +1,4 @@
-package com.example.notes
+package com.example.notes.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,7 +15,10 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.notes.NoteListFragmentDirections
+import com.example.notes.R
 import com.example.notes.adapter.NoteListAdapter
+import com.example.notes.database.Notes
 import com.example.notes.database.NotesDatabase
 import com.example.notes.databinding.FragmentNoteListBinding
 import com.example.notes.viewmodel.NotesViewModel
@@ -78,7 +81,7 @@ class NoteListFragment : Fragment(), NoteListAdapter.NoteClickInterface {
     }
 
     override fun onNoteClick(note: Notes) {
-        val navDirection = NoteListFragmentDirections.actionNoteListFragmentToNoteDetailsFragment(note)
+        val navDirection = NoteListFragmentDirections.actionNoteListFragmentToUpdateFragment(note)
         findNavController().navigate(navDirection)
     }
 

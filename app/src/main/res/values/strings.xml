@@ -12,4 +12,5 @@
     <string name="title">Title</string>
     <string name="body">Body</string>
     <string name="save_notes">Save Notes</string>
+    <string name="about_details">This app allows you to organize your notes in a proper manner, with lots of feature such as swipe to delete, Updating existing note by click on it and modifying it and also a drawer layout to take you to the various destinations in the application</string>
 </resources>

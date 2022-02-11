@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.notes.Notes
+import com.example.notes.database.Notes
 import com.example.notes.R
 import kotlinx.android.synthetic.main.fragment_note_details.*
 import kotlinx.android.synthetic.main.fragment_note_details.view.*

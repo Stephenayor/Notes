@@ -7,15 +7,24 @@
 
     <fragment
         android:id="@+id/noteListFragment"
-        android:name="com.example.notes.NoteListFragment"
+        android:name="com.example.notes.view.NoteListFragment"
         android:label="Note List" >
         <action
             android:id="@+id/action_noteListFragment_to_noteDetailsFragment"
             app:destination="@id/noteDetailsFragment" />
+        <action
+            android:id="@+id/action_noteListFragment_self"
+            app:destination="@id/noteListFragment" />
+        <action
+            android:id="@+id/action_noteListFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
+        <action
+            android:id="@+id/action_noteListFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
     </fragment>
     <fragment
         android:id="@+id/noteDetailsFragment"
-        android:name="com.example.notes.NoteDetailsFragment"
+        android:name="com.example.notes.view.NoteDetailsFragment"
         android:label="Create Notes"
         tools:layout="@layout/fragment_note_details" >
         <action
@@ -23,6 +32,27 @@
             app:destination="@id/noteListFragment" />
         <argument
             android:name="note"
+            app:argType="com.example.notes.Notes"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.notes.view.AboutFragment"
+        android:label="Notes Application"
+        tools:layout="@layout/fragment_about" >
+        <action
+            android:id="@+id/action_aboutFragment_self"
+            app:destination="@id/aboutFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.example.notes.view.UpdateFragment"
+        android:label="Edit Note" >
+        <argument
+            android:name="notes"
             app:argType="com.example.notes.Notes" />
+        <action
+            android:id="@+id/action_updateFragment_to_noteListFragment"
+            app:destination="@id/noteListFragment" />
     </fragment>
 </navigation>

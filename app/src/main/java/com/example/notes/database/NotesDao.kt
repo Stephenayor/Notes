@@ -1,10 +1,7 @@
 package com.example.notes.database
 
-import android.icu.text.Replaceable
-import android.provider.ContactsContract
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.notes.Notes
 
 @Dao
 interface NotesDao {

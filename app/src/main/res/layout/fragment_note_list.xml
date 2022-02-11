@@ -6,7 +6,7 @@
 
         <variable
             name="noteFragment"
-            type="com.example.notes.NoteListFragment" />
+            type="com.example.notes.view.NoteListFragment" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
