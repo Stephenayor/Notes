@@ -78,15 +78,6 @@ class NoteListFragment : Fragment(), NoteListAdapter.NoteClickInterface {
     }
 
     override fun onNoteClick(note: Notes) {
-//        val noteDetailsFragment: Fragment = NoteDetailsFragment()
-//        val bundle = Bundle()
-//        bundle.putParcelable("notes", note)
-//        noteDetailsFragment.arguments = bundle
-//        activity!!.supportFragmentManager.beginTransaction()
-//            .replace(R.id.note_list_fragment, noteDetailsFragment)
-//            .setReorderingAllowed(true)
-//            .addToBackStack(null)
-//            .commit()
         val navDirection = NoteListFragmentDirections.actionNoteListFragmentToNoteDetailsFragment(note)
         findNavController().navigate(navDirection)
     }
