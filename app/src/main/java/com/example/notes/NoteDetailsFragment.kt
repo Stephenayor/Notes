@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.notes.database.NotesDatabase
 import com.example.notes.databinding.FragmentNoteDetailsBinding
 import com.example.notes.viewmodel.NotesViewModel
@@ -19,13 +20,10 @@ import kotlinx.android.synthetic.main.fragment_note_details.*
 class NoteDetailsFragment() : Fragment() {
     private lateinit var noteTitle: String
     private lateinit var noteBody: String
-    private var noteID = -1
     private lateinit var binding: FragmentNoteDetailsBinding
     private lateinit var notesDatabase: NotesDatabase
     lateinit var notesViewModel: NotesViewModel
-    lateinit var notesViewModel2: NotesViewModel
     private lateinit var noteDetails: Notes
-//    lateinit var bundle: Bundle
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,22 +32,28 @@ class NoteDetailsFragment() : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?): View? {
+        savedInstanceState: Bundle?
+    ): View? {
         binding = DataBindingUtil.inflate<FragmentNoteDetailsBinding>(
             inflater, R.layout.fragment_note_details, container,
-            false)
+            false
+        )
 
-        val bundle = this.arguments
-        if (bundle != null){
+        checkForNoteParcel()
+        notesDatabase = NotesDatabase.getInstance(context!!)
+        setupViewModel()
+        return binding.root
+    }
+
+    private fun checkForNoteParcel() {
+        val noteArgs = arguments?.let { NoteDetailsFragmentArgs.fromBundle(it) }
+        if (noteArgs != null) {
             binding.root.setBackgroundColor(Color.WHITE)
-            noteDetails = bundle.getParcelable("notes")!!
+            noteDetails = noteArgs.note
             setupUpdate()
         } else {
             setupViews()
         }
-        notesDatabase = NotesDatabase.getInstance(context!!)
-        setupViewModel()
-        return binding.root
     }
 
     private fun setupViewModel() {
@@ -63,22 +67,13 @@ class NoteDetailsFragment() : Fragment() {
     }
 
     private fun setupUpdate() {
-//        val application = requireNotNull(this.activity).application
-//        val dataSource = NotesDatabase.getInstance(application).notesDao
-//        val viewModelFactory = NotesViewModelFactory(dataSource, application)
-//        notesViewModel =
-//            ViewModelProvider(
-//                this, viewModelFactory
-//            ).get(NotesViewModel::class.java)
-
         noteTitle = noteDetails.title.toString()
         noteBody = noteDetails.body.toString()
         binding.noteTitleEditText.setText(noteTitle)
         binding.noteBodyEditText.setText(noteBody)
         binding.saveNotesButton.setText("Update Note")
-        binding.saveNotesButton.setOnClickListener{view : View ->
+        binding.saveNotesButton.setOnClickListener { view: View ->
             updateNote(noteDetails)
-
         }
     }
 
@@ -88,7 +83,9 @@ class NoteDetailsFragment() : Fragment() {
         var notes = Notes(notesDetails.id, notesDetails.title, notesDetails.body)
         notesViewModel.updateNote(notes)
         Toast.makeText(context, "NOTE UPDATED", Toast.LENGTH_SHORT).show()
-
+        val navDirection =
+            NoteDetailsFragmentDirections.actionNoteDetailsFragmentToNoteListFragment()
+        findNavController().navigate(navDirection)
     }
 
     private fun setupViews() {
@@ -112,12 +109,5 @@ class NoteDetailsFragment() : Fragment() {
         view?.findNavController()?.navigate(R.id.action_noteDetailsFragment_to_noteListFragment)
     }
 
-    private fun checkForNoteParcel(){
-        validations()
-    }
-
-    private fun validations() {
-
-    }
 }
 

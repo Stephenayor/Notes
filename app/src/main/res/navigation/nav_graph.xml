@@ -21,5 +21,8 @@
         <action
             android:id="@+id/action_noteDetailsFragment_to_noteListFragment"
             app:destination="@id/noteListFragment" />
+        <argument
+            android:name="note"
+            app:argType="com.example.notes.Notes" />
     </fragment>
 </navigation>

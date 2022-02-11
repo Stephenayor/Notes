@@ -2,12 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+
+    <group
+        android:id="@+id/group_2"
+        android:checkableBehavior="single">
+
     <item
         android:id="@+id/nav_notes"
-        android:title="@string/my_notes" />
+        android:title="@string/my_notes"
+        />
 
     <item
         android:id="@+id/nav_about"
         android:title="@string/about" />
-
+    </group>
 </menu>

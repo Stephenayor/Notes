@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -77,15 +78,17 @@ class NoteListFragment : Fragment(), NoteListAdapter.NoteClickInterface {
     }
 
     override fun onNoteClick(note: Notes) {
-        val noteDetailsFragment: Fragment = NoteDetailsFragment()
-        val bundle = Bundle()
-        bundle.putParcelable("notes", note)
-        noteDetailsFragment.arguments = bundle
-        activity!!.supportFragmentManager.beginTransaction()
-            .replace(R.id.note_list_fragment, noteDetailsFragment)
-            .setReorderingAllowed(true)
-            .addToBackStack(null)
-            .commit()
+//        val noteDetailsFragment: Fragment = NoteDetailsFragment()
+//        val bundle = Bundle()
+//        bundle.putParcelable("notes", note)
+//        noteDetailsFragment.arguments = bundle
+//        activity!!.supportFragmentManager.beginTransaction()
+//            .replace(R.id.note_list_fragment, noteDetailsFragment)
+//            .setReorderingAllowed(true)
+//            .addToBackStack(null)
+//            .commit()
+        val navDirection = NoteListFragmentDirections.actionNoteListFragmentToNoteDetailsFragment(note)
+        findNavController().navigate(navDirection)
     }
 
     private fun initSwipeToDelete(): ItemTouchHelper.SimpleCallback {

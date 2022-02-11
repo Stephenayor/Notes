@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/nav_drawer_headerImage"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:paddingBottom="16dp"
+        android:src="@drawable/sticky_note"/>
+
+</LinearLayout>
